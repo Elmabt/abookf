@@ -31,12 +31,13 @@ namespace abookf
                 string l;
                 while ((l = file.ReadLine()) != null)
                 {
-                    string[] words = l.Split(' ');
+                    //this is so it know where to split in the txr file
+                    string[] words = l.Split('#');
                     abook.Add(new person(n: words[0], nr: words[2], e: words[3], a: words[1]));
                 }
                 file.Close();
             }
-            //meny
+            //menu
             Console.WriteLine("__________________________");
             Console.WriteLine("|pick a number between 1-4|");
             Console.WriteLine("|type quit to end program |");
@@ -46,6 +47,8 @@ namespace abookf
             Console.WriteLine("|3: remove contact        |");
             Console.WriteLine("|_________________________|");
             Console.ReadLine();
+            
+            bool quit = false;
             //all th code of the commands
             string command;
             do
@@ -55,7 +58,10 @@ namespace abookf
                 // command to quit program
                 if (command == "quit")
                 {
+                    //when the command quit it done this msg vill show and then quit
                     Console.WriteLine("adios amigo");
+                    System.Environment.Exit(0);
+                    quit = true;
                 }
                 // view contactlist
                 else if (command == "1")
@@ -90,29 +96,23 @@ namespace abookf
                 else if (command == "3")
                 {
                     //om du skriver in namnet på personen kommer den tasbort
-                    Console.Write("type the name of the pearson you want to delete if you vant to remove all type ALL: ");
-                    string remove = Console.ReadLine();
-                    int m = -1;
+                    Console.Write("type the name of the pearson you want to delete: ");
+                    string n = Console.ReadLine();
+                    
                     for (int i = 0; i < abook.Count(); i++)
                     {
-                        if (remove == abook[i].name)
+                        if (n == abook[i].name)
                         {
-                            m = i;
-                            //break statment stops the loop
-                            break;
+                            Console.WriteLine($" {n} got removed");
+                            abook.RemoveAt(i);
                         }
                     }
-                    if (m != -1)
-                    {
-                        abook.RemoveAt(m);
-                        Console.WriteLine("Tog bort {0}", remove);
-                    }
-
+                    
                 }
 
 
 
-            } while (command != "quit");
+            } while (!quit);
         }
 
     }

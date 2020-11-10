@@ -46,7 +46,7 @@ namespace abookf
             {
                 //meny
                 Console.WriteLine("__________________________");
-                Console.WriteLine("|pick a number between 1-4|");
+                Console.WriteLine("|pick a number between 1-3|");
                 Console.WriteLine("|type quit to end program |");
                 Console.WriteLine("|                         |");
                 Console.WriteLine("|1: view contactlist      |");

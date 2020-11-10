@@ -37,22 +37,23 @@ namespace abookf
                 }
                 file.Close();
             }
-            //menu
-            Console.WriteLine("__________________________");
-            Console.WriteLine("|pick a number between 1-4|");
-            Console.WriteLine("|type quit to end program |");
-            Console.WriteLine("|                         |");
-            Console.WriteLine("|1: view contactlist      |");
-            Console.WriteLine("|2: add contact           |");
-            Console.WriteLine("|3: remove contact        |");
-            Console.WriteLine("|_________________________|");
-            Console.ReadLine();
+            
             
             bool quit = false;
             //all th code of the commands
             string command;
             do
             {
+                //meny
+                Console.WriteLine("__________________________");
+                Console.WriteLine("|pick a number between 1-4|");
+                Console.WriteLine("|type quit to end program |");
+                Console.WriteLine("|                         |");
+                Console.WriteLine("|1: view contactlist      |");
+                Console.WriteLine("|2: add contact           |");
+                Console.WriteLine("|3: remove contact        |");
+                Console.WriteLine("|_________________________|");
+                
                 Console.Write("> ");
                 command = Console.ReadLine();
                 // command to quit program
@@ -92,7 +93,7 @@ namespace abookf
                            
                         }
                 }
-                // delete person
+                // remove person
                 else if (command == "3")
                 {
                     //om du skriver in namnet på personen kommer den tasbort
